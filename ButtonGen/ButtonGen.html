@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>Button Generator</title>
+        <style>
+            button{
+                width: 20px;
+                height: 20px;
+                color: white;
+                background: brown;
+                font-size: 20px;
+
+
+                border: 0;
+            }
+            button:hover{
+                background:grey;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1> Button Generator </h1>
+        <p> Hover over the Box to see what happens!</p>
+        <a href="../index.html">Back to main</a>]
+        <br><br>
+        <script>
+            let num=1;
+            let id = setInterval(function(){
+                let btn = document.createElement('button');
+                btn.innerText = "";
+                document.body.appendChild(btn);
+                btn.classList.add("button");
+                if (num == 201){
+                    clearInterval(id);
+                };
+                btn.addEventListener("mouseover", function(){ btn.style.background = "black"; btn.innerText = "";  });
+                btn.addEventListener("click", function(){ btn.style.background = "brown";});
+            },2)
+        </script>
+
+    </body>
+
+</html>
