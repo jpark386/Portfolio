@@ -1,0 +1,10 @@
+.box{
+    background: rgb(167, 255, 126);
+    padding: 10px;
+    color: black;
+}
+.profile{
+    background: rgb(255, 255, 128);
+    margin: 10px 0px;
+    padding: 5px;
+}
