@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Graphics Generator</title>
+        <style>
+            div{
+                border-radius: 15px;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Graphics Generator </h1>
+        <p> Click Around and See What Happens!</p>
+        <a href="../index.html">Back to main</a>]
+        <br><br>
+        <script>
+            let bounceBall = function(){
+                let div = document.createElement('div');
+                document.body.appendChild(div);
+                div.classList.add("div");
+                div.style.top = event.clientY-15;
+                div.style.left = event.clientX-15;
+                            //widnow.innerHeight
+                let t = 0;
+                let p = 1
+                let h = (Math.random() * 50 + 10);
+                div.style.width = h + "px";
+                div.style.height = h + "px";
+                div.style.borderRadius = h/2 + "px";
+                div.style.background = "orange";
+                setInterval(function(){
+                    t++
+                    div.style.left = parseFloat(div.style.left) + 1 + "px";
+                    div.style.top = parseFloat(div.style.top) + (t/5) + "px";
+                    if(parseFloat(div.style.top) > (window.innerHeight)){
+                        t = (-t) * (.9)
+                        if (p % 2 === 1){
+                            div.style.background = "red";
+                        }
+                        if (p % 2 === 0){
+                            div.style.background = "orange";
+                        }
+                        p++
+                    }
+                },20);
+            };
+            document.addEventListener("click", function(event){ 
+                console.log(event.clientX, event.clientY);
+                bounceBall();
+            });
+        </script>
+
+    </body>
+
+</html>
