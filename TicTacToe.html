@@ -1,0 +1,190 @@
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <style>
+            .button{
+                width: 33.33%;
+                height: 200px;
+                background: lightgray;
+                font-size: 100px;
+                border: 1px solid black;
+            }
+            button:hover{
+                background:grey;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <h1> TicTacToe </h1>
+        <p> Play tic tac toe with a friend!</p>
+        <a href="../index.html">Back to main</a>]
+        <br><br>
+        <script>
+            let done = 0;
+            let win = 1;
+            let num = 1;
+            let arx = [0,0,0,0,0]
+            let aro = [0,0,0,0,0]
+            for(let i = 0; i < 9; i++){
+                let btn = document.createElement('button');
+                btn.innerText = "-";
+                document.body.appendChild(btn);
+                btn.classList.add("button");
+                btn.addEventListener("click", function(){ 
+                    if (done === 1){
+                        return;
+                    }
+                    if (btn.innerText !== '-'){
+                        return;
+                    }
+                    if ((num % 2) == 1){
+                        btn.innerText = "x";
+                        btn.style.color = "red";
+                        arx[((num-1)/2)] = i+1;
+                    }
+                    else{
+                        btn.innerText = "o";
+                        btn.style.color = "blue";
+                        aro[((num)/2)] = (i+1);
+                    }
+                    num++
+                    for(let i = 0; i < 5; i++){
+                        for(let j = 0; j < 5; j++){
+                            for(let k = 0; k < 5; k++){
+                                if (aro[k] === 1){
+                                    if (aro[j] === 2){
+                                        if (aro[i] === 3){
+                                            win = 3;
+                                        }
+                                    }
+                                    if (aro[j] === 4){
+                                        if (aro[i] === 7){
+                                            win = 3;
+                                        }    
+                                    }
+                                    if (aro[j] === 5){
+                                        if (aro[i] === 9){
+                                            win = 3;
+                                        }    
+                                    }
+                                }
+                                if (aro[k] === 9){
+                                    if (aro[j] === 6){
+                                        if (aro[i] === 3){
+                                            win = 3;
+                                        }
+                                    }
+                                    if (aro[j] === 8){
+                                        if (aro[i] === 7){
+                                            win = 3;
+                                        }    
+                                    }
+                                }
+                                if (aro[k] === 5){
+                                    if (aro[j] === 6){
+                                        if (aro[i] === 4){
+                                            win = 3;
+                                        }
+                                    }
+                                    if (aro[j] === 2){
+                                        if (aro[i] === 8){
+                                            win = 3;
+                                        }    
+                                    }
+                                    if (aro[j] === 3){
+                                        if (aro[i] === 7){
+                                            win = 3;
+                                        }    
+                                    }
+                                }
+                            }
+                        } 
+                    }
+                    for(let i = 0; i < 5; i++){
+                        for(let j = 0; j < 5; j++){
+                            for(let k = 0; k < 5; k++){
+                                if (arx[k] === 1){
+                                    if (arx[j] === 2){
+                                        if (arx[i] === 3){
+                                            win = 2;
+                                        }
+                                    }
+                                    if (arx[j] === 4){
+                                        if (arx[i] === 7){
+                                            win = 2;
+                                        }    
+                                    }
+                                    if (arx[j] === 5){
+                                        if (arx[i] === 9){
+                                            win = 2;
+                                        }    
+                                    }
+                                }
+                                if (arx[k] === 9){
+                                    if (arx[j] === 6){
+                                        if (arx[i] === 3){
+                                            win = 2;
+                                        }
+                                    }
+                                    if (arx[j] === 8){
+                                        if (arx[i] === 7){
+                                            win = 2;
+                                        }    
+                                    }
+                                }
+                                if (arx[k] === 5){
+                                    if (arx[j] === 6){
+                                        if (arx[i] === 4){
+                                            win = 2;
+                                        }
+                                    }
+                                    if (arx[j] === 2){
+                                        if (arx[i] === 8){
+                                            win = 2;
+                                        }    
+                                    }
+                                    if (arx[j] === 3){
+                                        if (arx[i] === 7){
+                                            win = 2;
+                                        }    
+                                    }
+                                }
+                            }
+                        } 
+                    }
+                    if (win === 1 && num === 10){
+                        done = 1;
+                        let div = document.createElement('div');
+                        div.innerText = "Tie";
+                        document.body.appendChild(div);
+                    }
+                    if (win === 2){
+                        let div = document.createElement('div');
+                        div.innerText = "x Wins";
+                        document.body.appendChild(div);
+                        done = 1;
+                    }
+                    if (win === 3){
+                        let div = document.createElement('div');
+                        div.innerText = "o Wins";
+                        document.body.appendChild(div);
+                        done = 1;
+                    }
+                    if (done === 1){
+                        let lol = document.createElement('button');
+                        lol.innerText = "Play Again";
+                        document.body.appendChild(lol);
+                        lol.addEventListener("click", function(){
+
+                            }
+                        )
+                    }
+                });
+            };
+        </script>
+
+    </body>
+
+</html>
